@@ -1,0 +1,22 @@
+//Input A = [0, 1, 1] B = [0, 1, 2]
+//Output : 2
+//Given three points are: (0, 0), (1, 1) and (1, 2).
+//It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move from (1, 1) to (1, 2).
+
+class Solution{
+  public int getMinimumSteps(ArrayList<Integer> A, ArrayList<Integer> B){
+    int xAxis = A.get(0);
+    int yAxis = B.get(0);
+    int c = 0 ;
+    
+    for(int i = 1; i < A.size(); i++){
+          int x = A.get(i);
+          int y = B.get(i);
+
+          c += Math.max(Math.abs(y-yAxis), Math.abs(x-xAxis));
+          xAxis = x;
+          yAxis = y;
+        }
+        return c;
+        }
+      }
